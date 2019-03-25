@@ -39,11 +39,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.oldComputer = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.proceedButton = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +107,7 @@
             this.userAccount.Name = "userAccount";
             this.userAccount.Size = new System.Drawing.Size(214, 22);
             this.userAccount.TabIndex = 4;
+            this.userAccount.TextChanged += new System.EventHandler(this.userAccount_TextChanged);
             // 
             // label5
             // 
@@ -123,6 +124,7 @@
             this.newComputer.Name = "newComputer";
             this.newComputer.Size = new System.Drawing.Size(214, 22);
             this.newComputer.TabIndex = 2;
+            this.newComputer.TextChanged += new System.EventHandler(this.newComputer_TextChanged);
             // 
             // label4
             // 
@@ -139,6 +141,7 @@
             this.oldComputer.Name = "oldComputer";
             this.oldComputer.Size = new System.Drawing.Size(214, 22);
             this.oldComputer.TabIndex = 0;
+            this.oldComputer.TextChanged += new System.EventHandler(this.oldComputer_TextChanged);
             // 
             // groupBox2
             // 
@@ -153,6 +156,16 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Software settings to copy";
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(6, 105);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(98, 21);
+            this.checkBox4.TabIndex = 4;
+            this.checkBox4.Text = "checkBox4";
+            this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // checkBox3
             // 
@@ -172,6 +185,7 @@
             this.proceedButton.TabIndex = 2;
             this.proceedButton.Text = "Proceed";
             this.proceedButton.UseVisualStyleBackColor = true;
+            this.proceedButton.Click += new System.EventHandler(this.proceedButton_Click);
             // 
             // checkBox2
             // 
@@ -194,16 +208,6 @@
             this.checkBox1.Text = "Google Chrome";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(6, 105);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(98, 21);
-            this.checkBox4.TabIndex = 4;
-            this.checkBox4.Text = "checkBox4";
-            this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

@@ -1,0 +1,2 @@
+local\Google\Chrome
+roaming\avaya

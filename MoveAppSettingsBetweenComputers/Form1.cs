@@ -9,20 +9,38 @@ namespace MoveAppSettingsBetweenComputers
     public partial class Form1 : Form
     {
 
+        string sourceComputer;
+        string destinationComputer;
+        string userAccountToCopy;
+        int appSettingsLocationLineCount =  File.ReadAllLines("appSettingsLocation.txt").Length;
+       
 
-        
         public Form1()
         {
             InitializeComponent();
             //checkBox1.Text = applocation1;
             checkBox1.Text = valueFromFile("appSettingsLocation.txt", 0);
-            checkBox2.Text = valueFromFile("appSettingsLocation.txt", 1);
-            checkBox3.Text = returnCMDoutput("powershell.exe", "(Get-WmiObject -Class win32_bios).serialnumber");
-            checkBox4.Text = returnCMDoutput("cmd.exe", "/c hostname");
+            //checkBox2.Text = valueFromFile("appSettingsLocation.txt", 1);
+            //checkBox3.Text = returnCMDoutput("powershell.exe", "(Get-WmiObject -Class win32_bios).serialnumber");
 
-            performCMD("cmd.exe", "/c echo "+ valueFromFile("appSettingsLocation.txt", 1) + "&& pause");
+            checkBox4.Text = returnCMDoutput("cmd.exe", "/c hostname");
+            proceedButton.Enabled = true;
+            
+
+
+
+
+
+
 
         }
+
+
+        
+
+        
+
+
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -61,7 +79,7 @@ namespace MoveAppSettingsBetweenComputers
             return output;
         }
 
-        private void performCMD(string command, string arguments)
+        private void performCMDinWindow(string command, string arguments)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.FileName = @command;
@@ -78,8 +96,35 @@ namespace MoveAppSettingsBetweenComputers
                         
         }
 
+        private void oldComputer_TextChanged(object sender, EventArgs e)
+        {
+            sourceComputer = oldComputer.Text;
+            
 
+        }
 
+        private void proceedButton_Click(object sender, EventArgs e)
+        {
 
+            if (String.IsNullOrEmpty(oldComputer.Text) || String.IsNullOrEmpty(newComputer.Text) || String.IsNullOrEmpty(userAccount.Text))
+            {
+                MessageBox.Show("Please provide missing information");
+            }
+            else { performCMDinWindow("cmd.exe", "/c script.bat" + " "
+                + sourceComputer + " " 
+                + destinationComputer + " " 
+                + userAccountToCopy); }
+            
+        }
+
+        private void userAccount_TextChanged(object sender, EventArgs e)
+        {
+            userAccountToCopy = userAccount.Text;
+        }
+
+        private void newComputer_TextChanged(object sender, EventArgs e)
+        {
+            destinationComputer = newComputer.Text;
+        }
     }
 } 
